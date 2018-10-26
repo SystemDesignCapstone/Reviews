@@ -19,21 +19,21 @@ use ReviewSystem;
 DROP TABLE IF EXISTS `reviews`;
 
 CREATE TABLE `reviews` (
-  `id` INTEGER(1000) NOT NULL AUTO_INCREMENT,
-  `reviewer_id` INTEGER(1000) NOT NULL,
-  `review_body` VARCHAR(255) NULL DEFAULT NULL,
-  `review_time` TIMESTAMP NULL DEFAULT NULL,
-  `review_report` INTEGER(100) NOT NULL,
+  `id` INTEGER(255) NOT NULL AUTO_INCREMENT,
+  `reviewer_id` INTEGER(255) NOT NULL,
+  `review_body` VARCHAR(4000) NULL DEFAULT NULL,
+  `review_time` VARCHAR(255) NULL DEFAULT NULL,
+  `review_report` INTEGER(100) NULL DEFAULT NULL,
   `accuracy` INTEGER NULL DEFAULT NULL,
   `communication` INTEGER NULL DEFAULT NULL,
   `cleanliness` INTEGER NULL DEFAULT NULL,
-  `check-in` INTEGER NULL DEFAULT NULL,
+  `checkIn` INTEGER NULL DEFAULT NULL,
   `value` INTEGER NULL DEFAULT NULL,
   `location` INTEGER NULL DEFAULT NULL,
-  `house_id` INTEGER(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`reviewer_id`) REFERENCES `customers` (`id`),
-  FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`)
+  `house_id` INTEGER(255) NOT NULL,
+  PRIMARY KEY (`id`)
+  -- FOREIGN KEY (`reviewer_id`) REFERENCES `customers` (`id`),
+  -- FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`)
 );
 
 -- ---
@@ -44,7 +44,7 @@ CREATE TABLE `reviews` (
 DROP TABLE IF EXISTS `houses`;
 
 CREATE TABLE `houses` (
-  `id` INTEGER(100) NOT NULL AUTO_INCREMENT,
+  `id` INTEGER(255) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 );
 
@@ -56,7 +56,7 @@ CREATE TABLE `houses` (
 DROP TABLE IF EXISTS `customers`;
 
 CREATE TABLE `customers` (
-  `id` INTEGER(1000) NOT NULL AUTO_INCREMENT,
+  `id` INTEGER(255) NOT NULL AUTO_INCREMENT,
   `avatar_url` VARCHAR(255) NULL DEFAULT NULL,
   `username` VARCHAR(255) NOT NULL DEFAULT 'anonymous',
   PRIMARY KEY (`id`)
@@ -82,18 +82,18 @@ CREATE TABLE `customers` (
 -- ---
 -- Test Data
 -- ---
-INSERT INTO `reviews` (`reviewer_id`,`review_body`,`house_id`) VALUES
-('1','Awesome house! Great experience','1');
-INSERT INTO `reviews` (`reviewer_id`,`review_body`,`house_id`) VALUES
-('2','I hope the window is larger','1');
-INSERT INTO `reviews` (`reviewer_id`,`review_body`,`house_id`) VALUES
-('3','Nice service','2');
-INSERT INTO `houses` (`id`) VALUES
-('1');
-INSERT INTO `customers` (`avatar_url`,`username`) VALUES
-('','akali');
-INSERT INTO `customers` (`avatar_url`,`username`) VALUES
-('','ashe');
+-- INSERT INTO `reviews` (`reviewer_id`,`review_body`,`house_id`) VALUES
+-- ('1','Awesome house! Great experience','1');
+-- INSERT INTO `reviews` (`reviewer_id`,`review_body`,`house_id`) VALUES
+-- ('2','I hope the window is larger','1');
+-- INSERT INTO `reviews` (`reviewer_id`,`review_body`,`house_id`) VALUES
+-- ('3','Nice service','2');
+-- INSERT INTO `houses` (`id`) VALUES
+-- ('1');
+-- INSERT INTO `customers` (`avatar_url`,`username`) VALUES
+-- ('','akali');
+-- INSERT INTO `customers` (`avatar_url`,`username`) VALUES
+-- ('','ashe');
 
 
 -- INSERT INTO `reviews` (`id`,`reviewer_id`,`review_body`,`review_time`,`review_report`,`accuracy`,`communication`,`cleanliness`,`check-in`,`value`,`location`,`house_id`) VALUES

@@ -19,17 +19,17 @@ use ReviewSystem;
 DROP TABLE IF EXISTS `reviews`;
 
 CREATE TABLE `reviews` (
-  `id` INTEGER(100) NOT NULL AUTO_INCREMENT,
-  `reviewer_id` INTEGER(100) NOT NULL,
+  `id` INTEGER(1000) NOT NULL AUTO_INCREMENT,
+  `reviewer_id` INTEGER(1000) NOT NULL,
   `review_body` VARCHAR(255) NULL DEFAULT NULL,
   `review_time` TIMESTAMP NULL DEFAULT NULL,
-  `review_report` VARCHAR(25) NULL DEFAULT NULL,
-  `accuracy` FLOAT NULL DEFAULT NULL,
-  `communication` FLOAT NULL DEFAULT NULL,
-  `cleanliness` FLOAT NULL DEFAULT NULL,
-  `check-in` FLOAT NULL DEFAULT NULL,
-  `value` FLOAT NULL DEFAULT NULL,
-  `location` FLOAT NULL DEFAULT NULL,
+  `review_report` INTEGER(100) NOT NULL,
+  `accuracy` INTEGER NULL DEFAULT NULL,
+  `communication` INTEGER NULL DEFAULT NULL,
+  `cleanliness` INTEGER NULL DEFAULT NULL,
+  `check-in` INTEGER NULL DEFAULT NULL,
+  `value` INTEGER NULL DEFAULT NULL,
+  `location` INTEGER NULL DEFAULT NULL,
   `house_id` INTEGER(100) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`reviewer_id`) REFERENCES `customers` (`id`),
@@ -56,7 +56,7 @@ CREATE TABLE `houses` (
 DROP TABLE IF EXISTS `customers`;
 
 CREATE TABLE `customers` (
-  `id` INTEGER(100) NOT NULL AUTO_INCREMENT,
+  `id` INTEGER(1000) NOT NULL AUTO_INCREMENT,
   `avatar_url` VARCHAR(255) NULL DEFAULT NULL,
   `username` VARCHAR(255) NOT NULL DEFAULT 'anonymous',
   PRIMARY KEY (`id`)
@@ -87,7 +87,7 @@ INSERT INTO `reviews` (`reviewer_id`,`review_body`,`house_id`) VALUES
 INSERT INTO `reviews` (`reviewer_id`,`review_body`,`house_id`) VALUES
 ('2','I hope the window is larger','1');
 INSERT INTO `reviews` (`reviewer_id`,`review_body`,`house_id`) VALUES
-('3','I hope the window is larger','2');
+('3','Nice service','2');
 INSERT INTO `houses` (`id`) VALUES
 ('1');
 INSERT INTO `customers` (`avatar_url`,`username`) VALUES

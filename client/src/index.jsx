@@ -5,7 +5,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: {}
+      data: []
     }
   }
 
@@ -18,6 +18,9 @@ class App extends React.Component {
     axios.get(`/rooms/${house}`)
     .then((response)=> {
       console.log('response: ', response.data);
+      this.setState({
+        data: response.data
+      });
     })
     .catch((err)=> {
       console.log('error: ', err);
@@ -26,7 +29,9 @@ class App extends React.Component {
 
   render() {
     return(
-      <Reviews/>
+      <div>
+      <Reviews data={this.state.data}/>
+      </div>
       )
   }
 }

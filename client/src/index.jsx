@@ -1,8 +1,12 @@
 const axios = require('axios');
+import Reviews from './components/reviews.jsx'
 
 class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      data: {}
+    }
   }
 
   componentDidMount() {
@@ -10,7 +14,8 @@ class App extends React.Component {
   }
 
   getReviews() {
-    axios.get('/rooms/1')
+    var house = Math.floor(Math.random() * 100);
+    axios.get(`/rooms/${house}`)
     .then((response)=> {
       console.log('response: ', response.data);
     })
@@ -21,7 +26,7 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>Hello world !!!</div>
+      <Reviews/>
       )
   }
 }

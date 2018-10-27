@@ -6,7 +6,7 @@ const mysql = require('mysql');
 
 const bodyParser = require('body-parser');
 
-const dummy_reviews = require('../dummy_reviews.js')
+const dummy_reviews = require('../dummy_reviews.js');
 
 let ip = '127.0.0.1';
 
@@ -26,6 +26,8 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+connection.query(`delete from reviews`);
+
 for (var i = 0; i < dummy_reviews.length; i++) {
   connection.query(`insert into reviews (reviewer_id, review_body, review_time, accuracy, communication, cleanliness, checkIn, value, location, house_id) values (
     '${dummy_reviews[i].reviewer_id}',
@@ -38,13 +40,13 @@ for (var i = 0; i < dummy_reviews.length; i++) {
     '${dummy_reviews[i].value}',
     '${dummy_reviews[i].location}',
     '${dummy_reviews[i].house_id}'
-    )`)
+    )`);
 }
 
-app.get('/rooms/1', function(err, res) {
-    connection.query(`select * from reviews`, function (err, rows, fields) {
+app.get('/rooms/:houseId', function(req, res, err) {
+  connection.query(`select * from reviews where house_id = ${req.params.houseId}`, function (err, rows) {
     if (err) throw err;
-    res.send(rows[0].review_body);
+    res.send(rows);
   });
 });
 

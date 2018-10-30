@@ -7,6 +7,7 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
 const dummy_reviews = require('../dummy_reviews.js');
+const dummy_user = require('../dummy_user.js');
 
 let ip = '127.0.0.1';
 
@@ -26,6 +27,15 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+//connection.query(`delete from customers`);
+
+for (var j = 0; j < dummy_user.length; j++) {
+  connection.query(`insert into customers (avatar_url, username) values (
+    '${dummy_user[j].avatarUrl}',
+    '${dummy_user[j].name}'
+    )`);
+}
+
 connection.query(`delete from reviews`);
 
 for (var i = 0; i < dummy_reviews.length; i++) {
@@ -44,7 +54,7 @@ for (var i = 0; i < dummy_reviews.length; i++) {
 }
 
 app.get('/rooms/:houseId', function(req, res, err) {
-  connection.query(`select * from reviews where house_id = ${req.params.houseId}`, function (err, rows) {
+  connection.query(`select * from reviews left join customers on customers.id = reviews.reviewer_id where house_id= ${req.params.houseId}`, function (err, rows) {
     if (err) throw err;
     res.send(rows);
   });

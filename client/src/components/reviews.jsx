@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
@@ -10,8 +11,8 @@ class Reviews extends React.Component {
       {this.props.data.map((r, idx) =>
         <div key={idx}>
         <div>
-        <img src={r.avatar_url}/>
-        <span>{r.username}</span>
+        <img src={r.avatarUrl}/>
+        <span>{r.name}</span>
         </div>
         <div><p>{r.review_body}</p></div>
         </div>

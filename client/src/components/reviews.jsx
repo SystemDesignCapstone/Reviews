@@ -16,11 +16,17 @@ class Reviews extends React.Component {
         {this.props.data.map((r, idx) => {
           return (
           <div key={idx}>
-            <div>
+            <div id='review_start'>
               <img src={r.avatarUrl}/>
-              <span>{r.name}</span>
+              <div id='review_info'>
+                <div id='reviewer_name'>{r.name}</div>
+                <div id='review_time'>{r.review_time.slice(0, 4)}</div>
+              </div>
             </div>
-            <div><p>{r.review_body}</p></div>
+            <div id='review_body'><p>{r.review_body}</p></div>
+            <div id='dividing'>
+            <div id='line'></div>
+            </div>
           </div>
           );
         })}

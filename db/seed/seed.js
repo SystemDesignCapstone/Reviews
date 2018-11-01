@@ -1,10 +1,14 @@
 
 const {
   Users,
-  Reviews
+  Reviews,
 } = require('./index.js');
 const seed = require('./data.js');
 const db = require('../index.js');
+
+const createDatabase = () => {
+  db.query('drop database IF EXISTS `ReviewSystem`;CREATE DATABASE `ReviewSystem`;use ReviewSystem;');
+};
 
 const insertDummyData = () => {
   db.sync()
@@ -17,4 +21,5 @@ const insertDummyData = () => {
     });
 };
 
+createDatabase();
 insertDummyData();

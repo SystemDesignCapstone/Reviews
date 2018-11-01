@@ -18,7 +18,7 @@ module.exports = {
     },
   },
   {
-    timestamps: false
+    timestamps: false,
   }),
   Reviews: db.define('reviews', {
     id: {
@@ -71,7 +71,7 @@ module.exports = {
       allowNull: false,
     },
   },
-{
-    timestamps: false
-}),
-}
+  {
+    timestamps: false,
+  }),
+};

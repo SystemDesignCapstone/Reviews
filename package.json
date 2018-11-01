@@ -11,18 +11,24 @@
     "react-dev": "webpack -d --watch",
     "test": "jest",
     "server-dev": "nodemon server/index.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "db:setup": "node db/seed/seed.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "sequelize": "^4.41.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",

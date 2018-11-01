@@ -1,24 +1,32 @@
+import React from 'react';
+
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
+    this.props = props;
   }
 
   render() {
-    return(
+    return (
       <div>
-      <div> This is review for house: {this.props.house}</div>
-      {this.props.data.map((r, idx) =>
-        <div key={idx}>
         <div>
-        <img src={r.avatar_url}/>
-        <span>{r.username}</span>
+           This is review for house:
+          {this.props.house}
         </div>
-        <div><p>{r.review_body}</p></div>
-        </div>
-        )}
+        {this.props.data.map((r, idx) => {
+          return (
+          <div key={idx}>
+            <div>
+              <img src={r.avatarUrl}/>
+              <span>{r.name}</span>
+            </div>
+            <div><p>{r.review_body}</p></div>
+          </div>
+          );
+        })}
       </div>
-      )
+    );
   }
-}
+};
 
 export default Reviews;

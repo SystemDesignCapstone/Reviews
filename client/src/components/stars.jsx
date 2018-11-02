@@ -10,9 +10,12 @@ class Stars extends React.Component {
       location: [],
       checkIn: [],
       value: [],
+      final: [],
     };
     this.props = props;
+    this.sum = 0;
     this.ave = 0;
+    this.sub_ave = 0;
     this.starlize = this.starlize.bind(this);
     this.caculator = this.caculator.bind(this);
   }
@@ -44,8 +47,9 @@ class Stars extends React.Component {
       const sum = arr.reduce((s, v) => {
         return s + (v || 0);
       }, 0);
-      this.ave = sum / this.props.star.length;
-      this.starlize(this.ave, n);
+      this.sub_ave = sum / this.props.star.length;
+      this.sum += this.sub_ave;
+      this.starlize(this.sub_ave, n);
     }
   }
 
@@ -56,8 +60,29 @@ class Stars extends React.Component {
     this.caculator(this.displayData.location, 'location');
     this.caculator(this.displayData.value, 'value');
     this.caculator(this.displayData.checkIn, 'check-in');
+    this.ave = this.sum / 6;
+    if (this.props.star.length > 0) {
+      this.starlize(this.ave, this.displayData.final);
+    }
     return (
       <div>
+      <div>
+        <div id="overview">
+          <div id="amount">
+            {this.props.star.length} Reviews
+          </div>
+          <div id="final_stars">
+                {this.displayData.final}
+          </div>
+          <div id="search">
+          </div>
+        </div>
+      </div>
+      <div id="outline">
+          <div id="dividing">
+            <div id="line"></div>
+          </div>
+      </div>
         <div id="stars_container">
           <div id="stars_left">
             <div id="stars_box">

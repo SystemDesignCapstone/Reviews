@@ -44,6 +44,14 @@
   width: auto !important;
 }
 
+#final_stars {
+  margin-left: 16px !important;
+  display: flex;
+  flex-direction: row;
+  transform: scale(1.125);
+  margin: 3px;
+}
+
 #stars_container {
   display: flex !important;
   flex-direction: row !important;

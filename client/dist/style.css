@@ -188,6 +188,15 @@ img {
   display: inline !important;
 }
 
+#flag {
+  height: 14px; 
+  width: 14px; 
+  display: block; 
+  fill: rgb(118, 118, 118);
+  margin-left: auto;
+  order: 2;
+}
+
 #review_body {
   margin-top: 16px !important;
   word-wrap: break-word !important;

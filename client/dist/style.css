@@ -1,4 +1,49 @@
-#app, #outline {
+#overview {
+  margin-bottom: 12px;
+  margin-left: -8px !important;
+  margin-right: -8px !important;
+  display: flex;
+  flex-direction: row;
+}
+
+#amount {
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,
+  sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 800;
+  color: #484848 !important;
+  vertical-align: bottom !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+}
+
+#search {
+  width: 33.33333333333333% !important;
+  float: left !important;
+  border-width: var(--border-form-element-border-width, 1px) !important;
+  border-color: var(--color-input-border, #EBEBEB) !important;
+  border-radius: var(--border-form-element-border-radius, 2px) !important;
+  background-color: var(--color-input-background, #ffffff) !important;
+  margin-bottom: var(--unit, 8px) !important;
+  font-size: var(--font-text-small-font-size, 14px) !important;
+  line-height: var(--font-text-small-line-height, 18px) !important;
+  letter-spacing: var(--font-text-small-letter-spacing, normal) !important;
+  font-family: var(--font-text-small-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+  text-transform: var(--font-text-small-text-transform, undefined) !important;
+  color: var(--font-text-small-color, #484848) !important;
+  padding-top: var(--font-text-small-padding-top, undefined) !important;
+  padding-bottom: var(--font-text-small-padding-bottom, undefined) !important;
+}
+
+#outline {
+  max-width: 696px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: auto !important;
+}
+#app {
   max-width: 696px !important;
   margin-left: auto !important;
   margin-right: auto !important;

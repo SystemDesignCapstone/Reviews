@@ -6,6 +6,8 @@ import Reviews from './components/reviews.jsx';
 
 import Stars from './components/stars.jsx';
 
+import Overview from './components/overview.jsx';
+
 const axios = require('axios');
 
 class App extends React.Component {
@@ -33,6 +35,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Overview />
+        <div id="outline">
+          <div id="dividing">
+            <div id="line"></div>
+          </div>
+        </div>
         <Stars star={this.state.data}/>
         <Reviews data={this.state.data} house={this.state.currentHouse}/>
       </div>);

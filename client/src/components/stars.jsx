@@ -51,6 +51,11 @@ class Stars extends React.Component {
 
   render() {
     this.caculator(this.displayData.accuracy, 'accuracy');
+    this.caculator(this.displayData.communication, 'communication');
+    this.caculator(this.displayData.cleanliness, 'cleanliness');
+    this.caculator(this.displayData.location, 'location');
+    this.caculator(this.displayData.value, 'value');
+    this.caculator(this.displayData.checkIn, 'check-in');
     return (
       <div>
         <div id="stars_container">
@@ -67,10 +72,16 @@ class Stars extends React.Component {
               <div id="stars_text">
                 Communication
               </div>
+              <div id="stars">
+                {this.displayData.communication}
+              </div>
             </div>
             <div id="stars_box">
               <div id="stars_text">
                 Cleanliness
+              </div>
+              <div id="stars">
+                {this.displayData.cleanliness}
               </div>
             </div>
           </div>
@@ -79,15 +90,24 @@ class Stars extends React.Component {
               <div id="stars_text">
                 Location
               </div>
+              <div id="stars">
+                {this.displayData.location}
+              </div>
             </div>
             <div id="stars_box">
               <div id="stars_text">
                 Check-in
               </div>
+              <div id="stars">
+                {this.displayData.checkIn}
+              </div>
             </div>
             <div id="stars_box">
               <div id="stars_text">
                 Value
+              </div>
+              <div id="stars">
+                {this.displayData.value}
               </div>
             </div>
           </div>

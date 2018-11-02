@@ -43,6 +43,90 @@
   margin-right: auto !important;
   width: auto !important;
 }
+
+#stars_container {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+#stars_left {
+  width: 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#stars_right {
+  width: 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#stars_box {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+
+#stars_text {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  width: 50% !important;
+  float: left !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
+  letter-spacing: normal !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,
+  sans-serif !important;
+  color: #484848 !important;
+  font-weight: normal !important;
+  display: inline !important;
+}
+
+#stars {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+#bottom {
+  height:16px;
+  width:16px;
+  display:block;
+  fill: #D8D8D8;
+  position:relative;
+  margin-right: 6px;
+}
+#front{
+  height:16px;
+  width:16px;
+  display:block;
+  fill: #008489;
+  position:relative;
+  top:-16px;
+  margin-right: 6px;
+}
+
+#full {
+  height:16px;
+  width:16px;
+  display:block;
+  fill: #008489;
+  position:relative;
+  margin-right: 6px 
+}
+
+#empty {
+  height:16px;
+  width:16px;
+  display:block;
+  fill: #D8D8D8;
+  position:relative;
+  margin-right: 6px 
+}
+
 #app {
   max-width: 696px !important;
   margin-left: auto !important;
@@ -56,36 +140,6 @@ img {
   height: 48px;
   width: 48px;
   border-radius: 50%;
-}
-
-#bottom {
-  height:1em;
-  width:1em;
-  display:block;
-  fill: #D8D8D8;
-  position:relative;
-}
-#front{
-  height:1em;
-  width:1em;
-  display:block;
-  fill: #008489;
-  position:relative;
-  top:-1em;
-}
-#full {
-  height:1em;
-  width:1em;
-  display:block;
-  fill: #008489;
-  position:relative;
-}
-#empty {
-  height:1em;
-  width:1em;
-  display:block;
-  fill: #D8D8D8;
-  position:relative;
 }
 
 #review_start {

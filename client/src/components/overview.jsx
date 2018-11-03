@@ -11,7 +11,9 @@ class Overview extends React.Component {
       <div>
         <div id="overview">
           <div id="amount">
-            {this.props.data.length} Reviews
+            {this.props.data.length}
+            {' '}
+            Reviews
           </div>
           <div id="final_stars">
             stars

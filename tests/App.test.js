@@ -25,3 +25,7 @@ describe('<App />', () => {
     expect(app.containsMatchingElement(<Reviews />)).toEqual(true);
   });
 });
+
+describe('Fetching', () => {
+  
+})

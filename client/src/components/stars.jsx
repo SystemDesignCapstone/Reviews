@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Search from './search.jsx';
+
 class Stars extends React.Component {
   constructor(props) {
     super(props);
@@ -69,20 +71,21 @@ class Stars extends React.Component {
       <div>
         <div id="overview">
           <div id="amount">
-            {this.props.star.length} Reviews
+            {this.props.star.length}
+            {' '}
+            Reviews
           </div>
           <div id="final_stars">
-                {this.displayData.final}
+            {this.displayData.final}
           </div>
-          <div id="search">
-          </div>
+          <Search />
         </div>
       </div>
-      <div id="outline">
+        <div id="outline">
           <div id="dividing">
             <div id="line"></div>
           </div>
-      </div>
+        </div>
         <div id="stars_container">
           <div id="stars_left">
             <div id="stars_box">

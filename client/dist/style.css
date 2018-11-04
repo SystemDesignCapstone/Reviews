@@ -1,16 +1,18 @@
 #overview {
+  max-width: 696px !important;
   margin-bottom: 12px;
   margin-left: -8px !important;
   margin-right: -8px !important;
   display: flex;
   flex-direction: row;
+  margin-top: 50px;
 }
 
 #amount {
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,
   sans-serif !important;
   font-size: 24px !important;
-  font-weight: 800;
+  font-weight: 600;
   color: #484848 !important;
   vertical-align: bottom !important;
   padding-left: 8px !important;
@@ -20,21 +22,49 @@
 }
 
 #search {
+  display: flex;
+  flex-direction: row;
+  height: 32px !important;
   width: 33.33333333333333% !important;
-  float: left !important;
-  border-width: var(--border-form-element-border-width, 1px) !important;
-  border-color: var(--color-input-border, #EBEBEB) !important;
-  border-radius: var(--border-form-element-border-radius, 2px) !important;
+  margin-left: auto !important;
+  border: 1px solid #EBEBEB !important;
+  border-radius: 2px !important;
   background-color: var(--color-input-background, #ffffff) !important;
   margin-bottom: var(--unit, 8px) !important;
   font-size: var(--font-text-small-font-size, 14px) !important;
   line-height: var(--font-text-small-line-height, 18px) !important;
   letter-spacing: var(--font-text-small-letter-spacing, normal) !important;
   font-family: var(--font-text-small-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+  color: var(--font-text-small-color, #484848) !important;
+}
+
+#search_icon {
+  height:14px !important;
+  width:14px !important;
+  display:block;
+  color: #484848 !important;
+  margin: 9px;
+}
+
+.search_t {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.search_text {
+  border:none;
+  background-color: var(--color-clear, transparent) !important;
+  font-size: var(--font-text-small-font-size, 14px) !important;
+  line-height: var(--font-text-small-line-height, 18px) !important;
+  letter-spacing: var(--font-text-small-letter-spacing, normal) !important;
+  font-family: var(--font-text-small-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
   text-transform: var(--font-text-small-text-transform, undefined) !important;
   color: var(--font-text-small-color, #484848) !important;
-  padding-top: var(--font-text-small-padding-top, undefined) !important;
-  padding-bottom: var(--font-text-small-padding-bottom, undefined) !important;
+  padding-top: var(--spacing-form-element-small-vertical, 7px) !important;
+  padding-bottom: var(--spacing-form-element-small-vertical, 7px) !important;
+  font-weight: var(--font-book-font-weight, 600) !important;
+  padding-left: var(--spacing-form-element-small-horizontal, 7px) !important;
+  padding-right: var(--spacing-form-element-small-horizontal, 7px) !important;
 }
 
 #outline {
@@ -90,7 +120,7 @@
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,
   sans-serif !important;
   color: #484848 !important;
-  font-weight: normal !important;
+  font-weight: 200 !important;
   display: inline !important;
 }
 
@@ -163,7 +193,7 @@ img {
 }
 
 #reviewer_name {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-size: 16px !important;
@@ -184,20 +214,63 @@ img {
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,
   sans-serif !important;
   color: #484848 !important;
-  font-weight: normal !important;
+  font-weight: 200 !important;
   display: inline !important;
 }
 
+#flag {
+  height: 14px; 
+  width: 14px; 
+  display: block; 
+  fill: rgb(118, 118, 118);
+  margin-left: auto;
+  order: 2;
+}
+
 #review_body {
-  margin-top: 16px !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  margin-top: 20px !important;
   word-wrap: break-word !important;
   font-size: 16px !important;
   line-height: 22px !important;
   letter-spacing: normal !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  text-align: justify !important;
+  text-transform: undefined !important;
   color: #484848 !important;
-  font-weight: normal !important;
+  font-weight: 200 !important;
+  padding-right: 15px;
+  text-align: justify;
+}
+
+.readmore {
+  color: var(--color-text-link, #008489) !important;
+  font: inherit !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,
+  Helvetica Neue,sans-serif !important;
+  text-decoration: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background: transparent !important;
+  border: 0px !important;
+  cursor: pointer !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+  text-align: left !important;
+  display: inline;
+}
+
+#dot {
+  display: inline;
+}
+
+#rest{
+  display: none;
 }
 
 #line {

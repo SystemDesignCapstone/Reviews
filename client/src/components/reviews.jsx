@@ -8,25 +8,16 @@ class Reviews extends React.Component {
     this.text = '';
     this.rest = '';
     this.display = [];
-    this.state = {
-      click: false,
-    };
     this.props = props;
   }
 
-  show() {
-    this.setState({
-      click: !this.state.click,
-    });
+  show(e) {
+    e.target.parentNode.children[0].style.display = 'none';
+    e.target.parentNode.children[1].style.display = 'none';
+    e.target.parentNode.children[2].style.display = 'inline';
   }
 
   render() {
-    const style1 = {
-      display: this.state.click ? "none" : "inline",
-    };
-    const style2 = {
-      display: this.state.click ? "inline" : "none",
-    };
     return (
       <div>
         {
@@ -36,20 +27,17 @@ class Reviews extends React.Component {
           }).reverse().map((r, idx) => {
             const Long = () => (
               <div id="review_body">
-                <span>
-                  {r.review_body.slice(0, 330)}
-                  <span style={style1}>...</span>
-                  <button
-                    style={style1}
-                    type="button"
-                    className="readmore"
-                    aria-busy="false"
-                    onClick={this.show.bind(this)}
-                  >
-                    Read more
-                  </button>
-                  <span style={style2}>{r.review_body.slice(330 - r.review_body.length)}</span>
-                </span>
+                {r.review_body.slice(0, 330)}
+                <span id="dot">...</span>
+                <button
+                  type="button"
+                  className="readmore"
+                  aria-busy="false"
+                  onClick={this.show.bind(this)}
+                >
+                  Read more
+                </button>
+                <span id="rest">{r.review_body.slice(330 - r.review_body.length)}</span>
               </div>
             );
             const Short = () => (

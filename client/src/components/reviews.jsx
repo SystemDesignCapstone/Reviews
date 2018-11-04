@@ -9,6 +9,17 @@ class Reviews extends React.Component {
     this.rest = '';
     this.display = [];
     this.props = props;
+    this.state = {
+      currentPage: 1,
+      reviewsPerPage: 4
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
   }
 
   show(e) {

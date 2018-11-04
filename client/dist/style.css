@@ -12,7 +12,7 @@
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,
   sans-serif !important;
   font-size: 24px !important;
-  font-weight: 800;
+  font-weight: 600;
   color: #484848 !important;
   vertical-align: bottom !important;
   padding-left: 8px !important;
@@ -120,7 +120,7 @@
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,
   sans-serif !important;
   color: #484848 !important;
-  font-weight: normal !important;
+  font-weight: 200 !important;
   display: inline !important;
 }
 
@@ -193,7 +193,7 @@ img {
 }
 
 #reviewer_name {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-size: 16px !important;
@@ -214,7 +214,7 @@ img {
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,
   sans-serif !important;
   color: #484848 !important;
-  font-weight: normal !important;
+  font-weight: 200 !important;
   display: inline !important;
 }
 
@@ -230,15 +230,15 @@ img {
 #review_body {
   margin: 0px !important;
   word-wrap: break-word !important;
+  margin-top: 20px !important;
+  word-wrap: break-word !important;
   font-size: 16px !important;
   line-height: 22px !important;
   letter-spacing: normal !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   text-transform: undefined !important;
   color: #484848 !important;
-  padding-top: undefined !important;
-  padding-bottom: undefined !important;
-  font-weight: normal !important;
+  font-weight: 200 !important;
   padding-right: 15px;
   text-align: justify;
 }

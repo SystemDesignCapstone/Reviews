@@ -42,17 +42,15 @@ class Stars extends React.Component {
   };
 
   caculator(n, m) {
-    if (this.props.star.length > 0) {
-      const arr = this.props.star.map((a) => {
-        return a[m];
-      });
-      const sum = arr.reduce((s, v) => {
-        return s + (v || 0);
-      }, 0);
-      this.sub_ave = sum / this.props.star.length;
-      this.sum += this.sub_ave;
-      this.starlize(this.sub_ave, n);
-    }
+    const arr = this.props.star.map((a) => {
+      return a[m];
+    });
+    const sum = arr.reduce((s, v) => {
+      return s + (v || 0);
+    }, 0);
+    this.sub_ave = sum / this.props.star.length;
+    this.sum += this.sub_ave;
+    this.starlize(this.sub_ave, n);
   }
 
   render() {
@@ -63,9 +61,8 @@ class Stars extends React.Component {
     this.caculator(this.displayData.value, 'value');
     this.caculator(this.displayData.checkIn, 'check-in');
     this.ave = this.sum / 6;
-    if (this.props.star.length > 0) {
-      this.starlize(this.ave, this.displayData.final);
-    }
+    this.starlize(this.ave, this.displayData.final);
+
     return (
       <div>
       <div>

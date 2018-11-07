@@ -2,23 +2,41 @@ import React from 'react';
 
 import moment from 'moment/src/moment';
 
+import ReactPaginate from 'react-paginate';
+
+import $ from 'jquery';
+
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: [],
+      offset: 0,
+      pageCount: Math.ceil(this.props.data.length / 7),
+    };
     this.text = '';
     this.rest = '';
     this.display = [];
     this.props = props;
-    this.state = {
-      currentPage: 1,
-      reviewsPerPage: 4
-    };
-    this.handleClick = this.handleClick.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
-  handleClick(event) {
+  componentDidMount() {
+    this.loadComments();
+  }
+
+  loadComments() {
+    let offset = this.state.offset;
     this.setState({
-      currentPage: Number(event.target.id)
+      data: this.props.data.slice(offset, offset + 7),
+    });
+  }
+
+  handlePageClick(d) {
+    const selected = d.selected;
+    const off = Math.ceil(selected * 7);
+    this.setState({ offset: off }, () => {
+      this.loadComments();
     });
   }
 
@@ -32,7 +50,7 @@ class Reviews extends React.Component {
     return (
       <div>
         {
-          this.props.data.sort((a,b) => {
+          this.state.data.sort((a, b) => {
             return new Date(a.review_time.slice(0, 10))
             - new Date(b.review_time.slice(0, 10));
           }).reverse().map((r, idx) => {
@@ -88,6 +106,17 @@ class Reviews extends React.Component {
               </div>
             );
           })}
+        <ReactPaginate previousLabel={"previous"}
+          nextLabel={"next"}
+          breakLabel={<a href="">...</a>}
+          breakClassName={"break-me"}
+          pageCount={this.state.pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={this.handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"} />
       </div>
     );
   }

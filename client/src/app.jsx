@@ -17,16 +17,18 @@ class App extends React.Component {
     this.state = {
       data: [],
       currentHouse: 0,
+      isLoading: false,
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const house = Math.floor(Math.random() * 100);
     axios.get(`/rooms/${house}`).then((response) => {
       console.log('response: ', response.data);
       this.setState({
         data: response.data,
         currentHouse: house,
+        isLoading: true,
       });
     }).catch((err) => {
       console.log('error: ', err);
@@ -36,8 +38,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Stars star={this.state.data}/>
-        <Reviews data={this.state.data} house={this.state.currentHouse}/>
+        {this.state.isLoading &&
+          <Stars star={this.state.data}/>
+        }
+        {this.state.isLoading &&
+          <Reviews data={this.state.data} house={this.state.currentHouse}/>
+        }
       </div>);
   }
 }

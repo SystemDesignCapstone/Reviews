@@ -38,7 +38,7 @@ class Reviews extends React.Component {
           }).reverse().map((r, idx) => {
             const Long = () => (
               <div id="review_body">
-                {r.review_body.slice(0, 330)}
+                {r.review_body.slice(0, 250)}
                 <span id="dot">...</span>
                 <button
                   type="button"
@@ -48,7 +48,7 @@ class Reviews extends React.Component {
                 >
                   Read more
                 </button>
-                <span id="rest">{r.review_body.slice(330 - r.review_body.length)}</span>
+                <span id="rest">{r.review_body.slice(250 - r.review_body.length)}</span>
               </div>
             );
             const Short = () => (
@@ -58,7 +58,7 @@ class Reviews extends React.Component {
                 </p>
               </div>
             );
-            if (r.review_body.length > 330) {
+            if (r.review_body.length > 250) {
               this.display[0] = <Long />;
             } else {
               this.display[0] = <Short />;

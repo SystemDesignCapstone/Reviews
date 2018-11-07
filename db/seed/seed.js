@@ -6,12 +6,8 @@ const {
 const seed = require('./data.js');
 const db = require('../index.js');
 
-const createDatabase = () => {
-  db.query('drop database IF EXISTS `ReviewSystem`;CREATE DATABASE `ReviewSystem`;use ReviewSystem;');
-};
-
 const insertDummyData = () => {
-  db.sync()
+  db.sync({ force: true })
     .then(() => Users.bulkCreate(seed.users))
     .then(() => Reviews.bulkCreate(seed.reviews))
     .then(() => db.close())
@@ -21,5 +17,4 @@ const insertDummyData = () => {
     });
 };
 
-createDatabase();
 insertDummyData();

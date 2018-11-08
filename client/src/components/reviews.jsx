@@ -2,23 +2,41 @@ import React from 'react';
 
 import moment from 'moment/src/moment';
 
+import ReactPaginate from 'react-paginate';
+
+import $ from 'jquery';
+
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: [],
+      offset: 0,
+      pageCount: Math.ceil(this.props.data.length / 7),
+    };
     this.text = '';
     this.rest = '';
     this.display = [];
     this.props = props;
-    this.state = {
-      currentPage: 1,
-      reviewsPerPage: 4
-    };
-    this.handleClick = this.handleClick.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
-  handleClick(event) {
+  componentDidMount() {
+    this.loadComments();
+  }
+
+  loadComments() {
+    let offset = this.state.offset;
     this.setState({
-      currentPage: Number(event.target.id)
+      data: this.props.data.slice(offset, offset + 7),
+    });
+  }
+
+  handlePageClick(d) {
+    const selected = d.selected;
+    const off = Math.ceil(selected * 7);
+    this.setState({ offset: off }, () => {
+      this.loadComments();
     });
   }
 
@@ -32,13 +50,13 @@ class Reviews extends React.Component {
     return (
       <div>
         {
-          this.props.data.sort((a,b) => {
+          this.state.data.sort((a, b) => {
             return new Date(a.review_time.slice(0, 10))
             - new Date(b.review_time.slice(0, 10));
           }).reverse().map((r, idx) => {
             const Long = () => (
               <div id="review_body">
-                {r.review_body.slice(0, 330)}
+                {r.review_body.slice(0, 250)}
                 <span id="dot">...</span>
                 <button
                   type="button"
@@ -48,7 +66,7 @@ class Reviews extends React.Component {
                 >
                   Read more
                 </button>
-                <span id="rest">{r.review_body.slice(330 - r.review_body.length)}</span>
+                <span id="rest">{r.review_body.slice(250 - r.review_body.length)}</span>
               </div>
             );
             const Short = () => (
@@ -58,7 +76,7 @@ class Reviews extends React.Component {
                 </p>
               </div>
             );
-            if (r.review_body.length > 330) {
+            if (r.review_body.length > 250) {
               this.display[0] = <Long />;
             } else {
               this.display[0] = <Short />;
@@ -88,9 +106,48 @@ class Reviews extends React.Component {
               </div>
             );
           })}
+        <ReactPaginate previousLabel={<Pre />}
+          nextLabel={<Next />}
+          breakLabel={<a id="dots">...</a>}
+          breakClassName={"break-me"}
+          pageCount={this.state.pageCount}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
+          onPageChange={this.handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"} />
       </div>
     );
   }
 }
 
+const Pre = () => {
+  return (
+    <button type="button" className="_1ip5u88" aria-busy="false">
+    <div className="_1yofwd5"><div className="_1rltvky">
+    <svg id="pre_icon" viewBox="0 0 18 18" role="img" aria-label="Previous" focusable="false">
+    <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd">
+    </path>
+    </svg>
+    </div>
+    </div>
+    </button>
+  );
+};
+
+const Next = () => {
+  return (
+    <li className="_8wtxgiq">
+    <button type="button" className="_1ip5u88" aria-busy="false">
+    <div className="_1yofwd5"><div className="_1rltvky">
+    <svg id="pre_icon" viewBox="0 0 18 18" role="img" aria-label="Previous" focusable="false">
+    <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd">    </path>
+    </svg>
+    </div>
+    </div>
+    </button>
+    </li>
+  )
+}
 export default Reviews;

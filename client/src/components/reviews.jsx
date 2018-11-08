@@ -106,13 +106,13 @@ class Reviews extends React.Component {
               </div>
             );
           })}
-        <ReactPaginate previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={<a href="">...</a>}
+        <ReactPaginate previousLabel={<Pre />}
+          nextLabel={<Next />}
+          breakLabel={<a id="dots">...</a>}
           breakClassName={"break-me"}
           pageCount={this.state.pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
           onPageChange={this.handlePageClick}
           containerClassName={"pagination"}
           subContainerClassName={"pages pagination"}
@@ -122,4 +122,32 @@ class Reviews extends React.Component {
   }
 }
 
+const Pre = () => {
+  return (
+    <button type="button" className="_1ip5u88" aria-busy="false">
+    <div className="_1yofwd5"><div className="_1rltvky">
+    <svg id="pre_icon" viewBox="0 0 18 18" role="img" aria-label="Previous" focusable="false">
+    <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd">
+    </path>
+    </svg>
+    </div>
+    </div>
+    </button>
+  );
+};
+
+const Next = () => {
+  return (
+    <li className="_8wtxgiq">
+    <button type="button" className="_1ip5u88" aria-busy="false">
+    <div className="_1yofwd5"><div className="_1rltvky">
+    <svg id="pre_icon" viewBox="0 0 18 18" role="img" aria-label="Previous" focusable="false">
+    <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd">    </path>
+    </svg>
+    </div>
+    </div>
+    </button>
+    </li>
+  )
+}
 export default Reviews;

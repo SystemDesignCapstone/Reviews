@@ -6,9 +6,11 @@ const mysql = require('mysql');
 
 const bodyParser = require('body-parser');
 
-const ip = '127.0.0.1';
+const morgan = require('morgan');
 
-const port = 3000;
+const port = process.env.PORT || 3001;
+
+app.use(morgan('dev'));
 
 app.use(express.static('./client/dist'));
 
@@ -24,7 +26,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-app.get('/rooms/:houseId', (req, res) => {
+app.get('/api/:houseId', (req, res) => {
   connection.query(`select * from reviews left join customers on 
   customers.id = reviews.reviewer_id where house_id= ${req.params.houseId}`,
   (err, rows) => {
@@ -33,6 +35,6 @@ app.get('/rooms/:houseId', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log(`Connected to http://${ip}/${port}`);
+app.listen(3001, () => {
+  console.log(`Connected to http://localhost:${port}`);
 });

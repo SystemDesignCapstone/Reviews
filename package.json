@@ -24,8 +24,10 @@
     "react-dev": "webpack -d --watch",
     "test": "react-jest",
     "server-dev": "nodemon server/index.js",
+    "start": "node server/index.js",
     "lint": "eslint src",
     "db:setup": "node db/seed/seed.js",
+    "prestart": "node db/seed/seed.js",
     "build": "babel src -d lib"
   },
   "dependencies": {

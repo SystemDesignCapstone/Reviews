@@ -28,7 +28,15 @@
     "lint": "eslint src",
     "db:setup": "node db/seed/seed.js",
     "prestart": "node db/seed/seed.js",
-    "build": "babel src -d lib"
+    "build": "babel src -d lib",
+
+    "db:init": "db/index2.js",
+    "db:seed": "node --max-old-space-size=8192 db/seed.js",
+    "db:csv": "node --max-old-space-size=8192 db/createCSV.js",
+    "db:clean": "psql -d mydb -U drewcurtis -f pgClean.sql;",
+
+    "db:init": "psql -d mydb -U drewcurtis -f pgClean.sql && psql -d mydb -U drewcurtis -f postgres.sql",
+    "db:insert": "psql -d mydb -U drewcurtis -f pgDummyData.sql;"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -36,12 +44,16 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "faker": "^4.1.0",
+    "fast-csv": "^2.4.1",
     "jest-cli": "^23.6.0",
     "jquery": "^3.3.1",
+    "knex": "^0.15.2",
     "moment": "^2.22.2",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.1",
+    "pg": "^7.6.1",
+    "pg-format": "^1.0.4",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-paginate": "^5.3.1",

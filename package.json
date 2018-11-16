@@ -28,6 +28,7 @@
     "lint": "eslint src",
     "db:setup": "node db/seed/seed.js",
     "prestart": "node db/seed/seed.js",
+
     "build": "babel src -d lib",
 
     "db:port": "node --max-old-space-size=8192 db/portSeed.js",

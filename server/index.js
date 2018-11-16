@@ -5,9 +5,11 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const port = process.env.PORT || 3000;
 
+
 app.use(morgan('dev'));
 app.use(express.static('./client/dist'));
 app.use(bodyParser.json());
+
 
 
 const connection = 'postgresql://drewcurtis@localhost:5432/sdc';

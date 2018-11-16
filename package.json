@@ -30,13 +30,13 @@
     "prestart": "node db/seed/seed.js",
     "build": "babel src -d lib",
 
-    "db:init": "db/index2.js",
+    "db:port": "node --max-old-space-size=8192 db/portSeed.js",
+    "db:init": "psql -d sdc -U drewcurtis -f pgClean.sql && node db/index2.js",
     "db:seed": "node --max-old-space-size=8192 db/seed.js",
-    "db:csv": "node --max-old-space-size=8192 db/createCSV.js",
-    "db:clean": "psql -d mydb -U drewcurtis -f pgClean.sql;",
-
-    "db:init": "psql -d mydb -U drewcurtis -f pgClean.sql && psql -d mydb -U drewcurtis -f postgres.sql",
-    "db:insert": "psql -d mydb -U drewcurtis -f pgDummyData.sql;"
+    "db:csv": "node --max-old-space-size=8192 db/createCSV.js && node --max-old-space-size=8192 db/createCSV2.js && node --max-old-space-size=8192 db/seed.js",
+    "db:seedAll": "psql -d sdc -U drewcurtis -f pgClean.sql && node db/index2.js && node --max-old-space-size=8192 db/createCSV.js && node --max-old-space-size=8192 db/createCSV2.js && node --max-old-space-size=8192 db/seed.js",
+    "db:csv2": "node --max-old-space-size=8192 db/createCSV.js",
+    "db:insert": "psql -d sdc -U drewcurtis -f pgDummyData.sql;"
   },
   "dependencies": {
     "axios": "^0.18.0",

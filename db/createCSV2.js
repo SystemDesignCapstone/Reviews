@@ -3,9 +3,9 @@ const faker = require('faker');
 const csv = require('fast-csv');
 
 
-let createCSV = (rows = 100000, reviewCount = 5) => {
-  let reviewId = 1;
-  for (let i = 1; i <= rows; i++) {
+let createCSV = (rows = 100000, reviewCount = 5, start = rows * 2 + 1) => {
+  let reviewId = start;
+  for (let i = rows + 1; i <= rows * 2; i++) {
     // let rand = Math.floor(Math.random() * reviewCount) + 1;
     for (let j = 1; j <= 2; j++) {
       csvStream.write([
@@ -28,10 +28,10 @@ let createCSV = (rows = 100000, reviewCount = 5) => {
 
 
 var csvStream = csv.createWriteStream({headers: false}),
-    writableStream = fs.createWriteStream("sdc.csv");
+    writableStream = fs.createWriteStream("sdc2.csv");
 
 writableStream.on("finish", function(){
-  console.log('CSV DONE!');
+  console.log('CSV2 DONE!');
 });
 
 csvStream.pipe(writableStream);

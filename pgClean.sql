@@ -1,2 +1,1 @@
-DROP TABLE Users CASCADE;
-DROP TABLE Reviews;
+DROP TABLE housereviews;

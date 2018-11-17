@@ -28,16 +28,11 @@
     "lint": "eslint src",
     "db:setup": "node db/seed/seed.js",
     "prestart": "node db/seed/seed.js",
-
     "build": "babel src -d lib",
 
-    "db:port": "node --max-old-space-size=8192 db/portSeed.js",
-    "db:init": "psql -d sdc -U drewcurtis -f pgClean.sql && node db/index2.js",
-    "db:seed": "node --max-old-space-size=8192 db/seed.js",
-    "db:csv": "node --max-old-space-size=8192 db/createCSV.js && node --max-old-space-size=8192 db/createCSV2.js && node --max-old-space-size=8192 db/seed.js",
-    "db:seedAll": "psql -d sdc -U drewcurtis -f pgClean.sql && node db/index2.js && node --max-old-space-size=8192 db/createCSV.js && node --max-old-space-size=8192 db/createCSV2.js && node --max-old-space-size=8192 db/seed.js",
-    "db:csv2": "node --max-old-space-size=8192 db/createCSV.js",
-    "db:insert": "psql -d sdc -U drewcurtis -f pgDummyData.sql;"
+    "db:copy": "psql -d sdc -U drewcurtis -c 'DROP TABLE housereviews' && node db/postgres/index.js && psql -d sdc -U drewcurtis -c '\\copy housereviews FROM sdcPipe WITH (FORMAT CSV)' && psql -d sdc -U drewcurtis -c 'create index houseID on housereviews (house_id)'",
+    "db:port": "node db/postgres/portSeed.js > sdcPipe",
+    "db:seedAll": "psql -d sdc -U drewcurtis -f pgClean.sql && node db/postgres/index.js && node --max-old-space-size=8192 db/postgres/createCSV.js && node --max-old-space-size=8192 db/postgres/createCSV2.js && node --max-old-space-size=8192 db/postgres/seed.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

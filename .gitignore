@@ -2,3 +2,6 @@
 sdc.csv
 sdc2.csv
 .vscode
+.idea
+newrelic.js
+newrelic_agent.log

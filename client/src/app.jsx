@@ -17,12 +17,12 @@ class App extends React.Component {
     this.state = {
       data: [],
       currentHouse: 49,
-      isLoading: true,
+      isLoading: false,
     };
   }
 
   componentWillMount() {
-    const house = Math.floor(Math.random() * 5000000);
+    const house = Math.floor(Math.random() * 10000000);
     axios.get(`/api/${house}`).then((response) => {
       this.setState({
         data: response.data,

@@ -84,7 +84,7 @@ class Reviews extends React.Component {
             return (
               <div key={idx}>
                 <div id="review_start">
-                  <img id="reviewer_avatar" src={r.avatarUrl} alt="" />
+                  <img id="reviewer_avatar" src={r.avatar_url} alt="" />
                   <div id="review_info">
                     <div id="reviewer_name">{r.name}</div>
                     <div id="review_time">

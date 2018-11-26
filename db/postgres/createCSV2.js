@@ -3,11 +3,11 @@ const faker = require('faker');
 const csv = require('fast-csv');
 
 
-let createCSV = (rows = 100000, reviewCount = 5, start = rows * 2 + 1) => {
+let createCSV = (rows = 5000000, reviewCount = 5, start = rows * reviewCount + 1) => {
   let reviewId = start;
   for (let i = rows + 1; i <= rows * 2; i++) {
     // let rand = Math.floor(Math.random() * reviewCount) + 1;
-    for (let j = 1; j <= 2; j++) {
+    for (let j = 1; j <= reviewCount; j++) {
       csvStream.write([
         reviewId++,
         i,
@@ -36,6 +36,6 @@ writableStream.on("finish", function(){
 
 csvStream.pipe(writableStream);
 
-createCSV(50000000, 2);
+createCSV(500, 6);
 
 csvStream.end();

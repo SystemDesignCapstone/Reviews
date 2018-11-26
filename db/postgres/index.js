@@ -9,13 +9,13 @@ const houseReviews =
   review_id INT PRIMARY KEY,
   house_id INT,
   name VARCHAR(50),
-  avatarUrl VARCHAR(100),
+  avatar_url VARCHAR(100),
   review_body VARCHAR(500),
   review_time VARCHAR(60),
   accuracy INT,
   communication INT,
   cleanliness INT,
-  "check-in" INT,
+  check_in INT,
   value INT,
   location INT
 )`;

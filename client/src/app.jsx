@@ -23,6 +23,8 @@ class App extends React.Component {
 
   componentWillMount() {
     const house = Math.floor(Math.random() * 10000000);
+    // const house = 9000000;
+
     axios.get(`/api/${house}`).then((response) => {
       this.setState({
         data: response.data,
